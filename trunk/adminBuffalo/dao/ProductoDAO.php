@@ -76,6 +76,22 @@ class ProductoDAO {
         return $producto;
     }
 
+    public function updateProducto($producto) {
+        $conexion = new Connection();
+        $query = "update producto set modelo = '{$producto->getModelo()}', 
+            descripcion = '{$producto->getDescripcion()}', 
+            foto_principal = '{$producto->getFoto_principal()}' 
+            where id_producto = {$producto->getId_producto()}";
+        echo 'A VER AHORA '.$query;
+        $result = mysql_query($query, $conexion->getConnection());
+
+        if (isset($result)) {
+            return $result;
+        } else {
+            return -1;
+        }
+    }
+
 }
 
 ?>
