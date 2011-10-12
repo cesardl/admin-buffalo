@@ -37,11 +37,12 @@ if ($accion == 'E') {
         <title>Formulario de producto</title>
     </head>
     <body>
-        <form method="POST" action="actualizarProductoCtrl.php" enctype="multipart/form-data" name="formProducto">
+        <form method="POST" action="actualizarProductoCtrl.php" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td colspan="2"><h3><?php echo $title ?></h3></td>
                     <td><a href="index.php">&lt;&lt; Volver</a></td>
+                    <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $producto->getId_producto() ?>" />
                 </tr>
                 <tr>
                     <td>Tipo vehiculo</td>

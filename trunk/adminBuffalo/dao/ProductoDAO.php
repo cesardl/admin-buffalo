@@ -82,7 +82,6 @@ class ProductoDAO {
             descripcion = '{$producto->getDescripcion()}', 
             foto_principal = '{$producto->getFoto_principal()}' 
             where id_producto = {$producto->getId_producto()}";
-        echo 'A VER AHORA '.$query;
         $result = mysql_query($query, $conexion->getConnection());
 
         if (isset($result)) {
