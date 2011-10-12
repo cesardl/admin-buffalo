@@ -37,7 +37,7 @@ if ($accion == 'E') {
         <title>Formulario de producto</title>
     </head>
     <body>
-        <form method="POST" action="bussinessLogic/ProductoBL.php" enctype="multipart/form-data" name="formProducto">
+        <form method="POST" action="actualizarProductoCtrl.php" enctype="multipart/form-data" name="formProducto">
             <table>
                 <tr>
                     <td colspan="2"><h3><?php echo $title ?></h3></td>
@@ -92,7 +92,7 @@ if ($accion == 'E') {
                 </tr>
                 <tr>
                     <td>Foto principal</td>
-                    <td><input type="file" id="imagen" name="imagen" /></td>
+                    <td><input type="file" id="imagen" name="imagen" value="<?php echo $producto->getFoto_principal() ?>"/></td>
                 </tr>
                 <tr>
                     <td>Foto Zoom 1</td>
