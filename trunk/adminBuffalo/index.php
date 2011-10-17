@@ -17,7 +17,7 @@
                     <th>Modelo</th>
                     <th>Descripcion</th>
                     <th>Master</th>
-                    <th colspan="2">Acciones</th>
+                    <th colspan="3">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +34,7 @@
                     echo "<td>{$productos[$i]->getModelo()}</td>";
                     echo '<td>' . utf8_encode($productos[$i]->getDescripcion()) . '</td>';
                     echo "<td>{$master->getClase()}</td>";
+                    echo "<td><a href='formDetalles.php?id_producto={$productos[$i]->getId_producto()}'>Detalles</a></td>";
                     echo "<td><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}'>Editar</a></td>";
                     echo '<td>Eliminar</td>';
                     echo '</tr>';

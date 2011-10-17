@@ -25,6 +25,7 @@ class Producto {
     private $master;
 
     public function __construct() {
+        $this->id_producto = 0;
         $this->master = new Master();
     }
 
