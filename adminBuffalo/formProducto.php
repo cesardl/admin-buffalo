@@ -37,12 +37,12 @@ if ($accion == 'E') {
         <title>Formulario de producto</title>
     </head>
     <body>
-        <form method="POST" action="actualizarProductoCtrl.php" enctype="multipart/form-data">
+        <form method="POST" action="actionProductoCtrl.php" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td colspan="2"><h3><?php echo $title ?></h3></td>
                     <td><a href="index.php">&lt;&lt; Volver</a></td>
-                    <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $producto->getId_producto() ?>" />
+                <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $producto->getId_producto() ?>" />
                 </tr>
                 <tr>
                     <td>Tipo vehiculo</td>
@@ -66,7 +66,6 @@ if ($accion == 'E') {
                             }
                             ?>
                         </select>
-
                         <select id="master" name="master">
                             <option value="0">[Seleccione]</option>
                             <?php
@@ -93,23 +92,81 @@ if ($accion == 'E') {
                 </tr>
                 <tr>
                     <td>Foto principal</td>
-                    <td><input type="file" id="imagen" name="imagen" value="<?php echo $producto->getFoto_principal() ?>"/></td>
+                    <td>
+                        <input type="hidden" name="v_imagen" value="<?php echo $producto->getFoto_principal() ?>"/>
+                        <input type="file" id="imagen" name="imagen" />
+                        <?php
+                        $fprin = $producto->getFoto_principal();
+                        if (!empty($fprin)) {
+                            echo "<img src=\"..$fprin\" alt=\"Foto principal\" style=\"width: 5%;\" />";
+                        }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Foto Zoom 1</td>
-                    <td><input type="file" id="zoom1" name="zoom1" /></td>
+                    <td>
+                        <input type="hidden" name="v_zoom1" value="<?php echo $producto->getFoto_zoom_1() ?>" />
+                        <input type="file" id="zoom1" name="zoom1" />
+                        <?php
+                        $zoom1 = $producto->getFoto_zoom_1();
+                        if (!empty($zoom1)) {
+                            echo "<img src=\"..$zoom1\" alt=\"Zoom 1\" style=\"width: 5%;\" />";
+                        }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Foto Zoom 2</td>
-                    <td><input type="file" id="zoom2" name="zoom2" /></td>
+                    <td>
+                        <input type="hidden" name="v_zoom2" value="<?php echo $producto->getFoto_zoom_2() ?>" />
+                        <input type="file" id="zoom2" name="zoom2" />
+                        <?php
+                        $zoom2 = $producto->getFoto_zoom_2();
+                        if (!empty($zoom2)) {
+                            echo "<img src=\"..$zoom2\" alt=\"Zoom 2\" style=\"width: 5%;\" />";
+                        }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Foto Zoom 3</td>
-                    <td><input type="file" id="zoom3" name="zoom3" /></td>
+                    <td>
+                        <input type="hidden" name="v_zoom3" value="<?php echo $producto->getFoto_zoom_3() ?>" />
+                        <input type="file" id="zoom3" name="zoom3" />
+                        <?php
+                        $zoom3 = $producto->getFoto_zoom_3();
+                        if (!empty($zoom3)) {
+                            echo "<img src=\"..$zoom3\" alt=\"Zoom 3\" style=\"width: 5%;\" />";
+                        }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Foto Zoom 4</td>
-                    <td><input type="file" id="zoom4" name="zoom4" /></td>
+                    <td>
+                        <input type="hidden" name="v_zoom4" value="<?php echo $producto->getFoto_zoom_4() ?>" />
+                        <input type="file" id="zoom4" name="zoom4" />
+                        <?php
+                        $zoom4 = $producto->getFoto_zoom_4();
+                        if (!empty($zoom4)) {
+                            echo "<img src=\"..$zoom4\" alt=\"Zoom 4\" style=\"width: 5%;\" />";
+                        }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ficha tecnica</td>
+                    <td>
+                        <input type="hidden" name="v_fichtec" value="<?php echo $producto->getFicha_tecnica() ?>" />
+                        <input type="file" id="fichtec" name="fichtec" />
+                        <?php
+                        $ficha = $producto->getFicha_tecnica();
+                        if (!empty($ficha)) {
+                            echo "<img src=\"images/pdf.png\" alt=\"Ficha tecnica\" style=\"width: 10%;\" />";
+                        }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Descripci&oacute;n</td>
@@ -117,7 +174,6 @@ if ($accion == 'E') {
                         <textarea id="descripcion" name="descripcion"  style="height: 80px; width: 360px;"><?php echo utf8_encode($producto->getDescripcion()) ?></textarea>
                     </td>
                 </tr>
-
                 <tr>
                     <td colspan="2" style="text-align: center;">
                         <input type="submit" name="name"value="Aceptar" />                        

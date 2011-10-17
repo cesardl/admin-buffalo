@@ -27,14 +27,24 @@ class ProductoBL {
         return $this->pDao->getProductoById($id_producto);
     }
 
-     public function updateProducto($producto) {
-        $total = $this->pDao->updateProducto($producto);
-        if ($total == -1) {
-            return "No se pudo actualizar el producto";
+    public function insertProducto($producto) {
+        $total = $this->pDao->insertProducto($producto);
+        if ($total == 1) {
+            return "Se inserto $total producto";
         } else {
-            return "Se actualizo $total producto";
+            return "No se pudo insertar el producto";
         }
     }
+
+    public function updateProducto($producto) {
+        $total = $this->pDao->updateProducto($producto);
+        if ($total == 1) {
+            return "Se actualizo $total producto";
+        } else {
+            return "No se pudo actualizar el producto";
+        }
+    }
+
 }
 
 ?>
