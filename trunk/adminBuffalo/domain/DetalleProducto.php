@@ -18,6 +18,10 @@ class DetalleProducto {
     private $descripcion;
     private $id_producto;
 
+    public function __construct() {
+        $this->id_detalle_producto = 0;
+    }
+
     public function getId_detalle_producto() {
         return $this->id_detalle_producto;
     }

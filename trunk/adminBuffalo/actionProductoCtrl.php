@@ -13,9 +13,9 @@ $messages[2] = 'Tranferencia de imagen falló.';
 
 $title = $_POST['title'];
 $id_producto = $_POST['id_producto'];
-$modelo = $_POST['modelo'];
-$descripcion = $_POST['descripcion'];
-$foto_principal = $_POST['v_imagen'];
+$modelo = trim($_POST['modelo']);
+$descripcion = trim($_POST['descripcion']);
+$foto_detalle = $_POST['v_imagen'];
 $foto_zoom1 = $_POST['v_zoom1'];
 $foto_zoom2 = $_POST['v_zoom2'];
 $foto_zoom3 = $_POST['v_zoom3'];
@@ -58,14 +58,15 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
         <title>Operacion realizada</title>
     </head>
     <body>
         <?php include 'menu.html' ?>
         <h3><?php echo $title ?></h3>
         <?php
-        if (empty($foto_principal)) {
-            $foto_principal = uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp, 0);
+        if (empty($foto_detalle)) {
+            $foto_detalle = uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp, 0);
         }
         if (empty($foto_zoom1)) {
             $foto_zoom1 = uploadPhoto($tipo_archivo_z1, $tamano_archivo_z1, $nombre_archivo_z1, $imagen_temp_z1, 1);
@@ -83,8 +84,8 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
             $ficha_tecnica = uploadPDF($tipo_archivo_ficha, $tamano_archivo_ficha, $nombre_archivo_ficha, $pdf_temp_ficha);
         }
 
-        if (is_numeric($foto_principal)) {
-            echo "No se ha podido cargar la imagen $nombre_archivo<br>$messages[$foto_principal]";
+        if (is_numeric($foto_detalle)) {
+            echo "No se ha podido cargar la imagen $nombre_archivo<br>$messages[$foto_detalle]";
             echo "<a href='index.php'>Regresar</a>";
         } else if (is_numeric($foto_zoom1)) {
             echo "No se ha podido cargar la imagen $nombre_archivo_z1<br>$messages[$foto_zoom1]";
@@ -106,7 +107,7 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
             $producto->setId_producto($id_producto);
             $producto->setModelo($modelo);
             $producto->setDescripcion(utf8_decode($descripcion));
-            $producto->setFoto_principal($foto_principal);
+            $producto->setFoto_principal($foto_detalle);
             $producto->setFoto_zoom_1($foto_zoom1);
             $producto->setFoto_zoom_2($foto_zoom2);
             $producto->setFoto_zoom_3($foto_zoom3);
@@ -164,7 +165,7 @@ function uploadPDF($tipo_archivo, $tamano_archivo, $nombre_archivo, $pdf_temp) {
     if ($tamano_archivo == 0) {
         return '';
     } else {
-        if (!((strpos($tipo_archivo, "pdf")) && ($tamano_archivo < 6000000))) {
+        if (!strpos($tipo_archivo, "pdf")) {
             return 0;
         } else {
             $ruta = "..\\ficha_tecnica\\" . $nombre_archivo;
