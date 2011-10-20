@@ -118,6 +118,19 @@ class ProductoDAO {
         }
     }
 
+    public function deleteProducto($id_producto) {
+        $conexion = new Connection();
+        $query = "DELETE FROM producto WHERE id_producto = $id_producto";
+
+        $result = mysql_query($query, $conexion->getConnection());
+
+        if (isset($result)) {
+            return $result;
+        } else {
+            return -1;
+        }
+    }
+
 }
 
 ?>

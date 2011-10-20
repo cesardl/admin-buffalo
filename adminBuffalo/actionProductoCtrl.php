@@ -13,8 +13,8 @@ $messages[2] = 'Tranferencia de imagen falló.';
 
 $title = $_POST['title'];
 $id_producto = $_POST['id_producto'];
-$modelo = trim($_POST['modelo']);
-$descripcion = trim($_POST['descripcion']);
+$modelo = cleanString($_POST['modelo']);
+$descripcion = cleanString($_POST['descripcion']);
 $foto_detalle = $_POST['v_imagen'];
 $foto_zoom1 = $_POST['v_zoom1'];
 $foto_zoom2 = $_POST['v_zoom2'];
@@ -182,5 +182,9 @@ function uploadPDF($tipo_archivo, $tamano_archivo, $nombre_archivo, $pdf_temp) {
             }
         }
     }
+}
+
+function cleanString($cadena) {
+    return htmlspecialchars(trim($cadena));
 }
 ?>

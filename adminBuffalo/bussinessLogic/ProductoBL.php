@@ -45,6 +45,15 @@ class ProductoBL {
         }
     }
 
+    public function deleteProducto($id_producto) {
+        $result = $this->pDao->deleteProducto($id_producto);
+        if ($result == 1) {
+            return "Se elimino $result producto";
+        } else {
+            return "No se pudo actualizar el producto";
+        }
+    }
+
 }
 
 ?>
