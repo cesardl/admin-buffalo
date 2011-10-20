@@ -1,72 +1,37 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
-        <script type="text/javascript" src="scritps/jquery.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('.a_delete').click(function(){
-                    if(confirm('Seguro que desea eliminar este vehiculo?')) {
-                        var href = $(this).attr('href');
-                        var id_product = href.substr(1);
-                        $.post("VehiculoDelete.php",{
-                            id_producto: id_product
-                        },function(data){
-                            $("#result").html(data);
-                            $("#fila-"+id_product).remove();
-                        })
-                    }
-                });
-                
-                $('#result').click(function() {
-                    $(this).hide();
-                });
-            });
-        </script>
-        <title>Bienvenido</title>
+        <title>Motos Buffalo</title>
     </head>
     <body>
-        <?php include 'menu.html'; ?>
-
-        <div style="text-align: right; height: 40px;">
-            <a href="formProducto.php?action=N">Nuevo producto</a>
-        </div>
-        <table border="1">
-            <thead>
+        <form id="frm1" name="frm1" action="bienvenido.php" method="POST">
+            <table width="600" border="1" align="center" cellpadding="15" cellspacing="0" bordercolor="#000000">
                 <tr>
-                    <th>Modelo</th>
-                    <th>Descripci&oacute;n</th>
-                    <th>Master</th>
-                    <th colspan="3">Acciones</th>
+                    <td>
+                        <table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>Usuario</td>
+                                <td><input type="text" id="user" name="user"/></td>
+                            </tr>
+                            <tr>
+                                <td>Contrase&ntilde;a</td>
+                                <td><input type="password" id="passwd" name="passwd"/></td>
+                            </tr>
+
+                            <tr>
+                                <td style="text-align: center;" colspan="2">
+                                    <input type="submit"  id="btn_ingresar"  value="Aceptar"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php
-                include_once 'bussinessLogic/ProductoBL.php';
-
-                $productoBL = new ProductoBL();
-
-                $productos = $productoBL->getProductos();
-                for ($i = 0; $i < count($productos); $i++) {
-                    $master = $productos[$i]->getMaster();
-                    ?>
-                    <tr id="fila-<?php echo $productos[$i]->getId_producto() ?>" 
-                        onmouseover="this.style.backgroundColor='#E0E0E0'" 
-                        onmouseout="this.style.backgroundColor='#FFFFFF'">
-                            <?php
-                            echo "<td>{$productos[$i]->getModelo()}</td>";
-                            echo '<td>' . utf8_encode($productos[$i]->getDescripcion()) . '</td>';
-                            echo "<td>{$master->getClase()}</td>";
-                            echo "<td><a href='formDetalles.php?id_producto={$productos[$i]->getId_producto()}'>Detalles</a></td>";
-                            echo "<td><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}'>Editar</a></td>";
-                            echo "<td><a href='#{$productos[$i]->getId_producto()}' class='a_delete'>Eliminar</a></td>";
-                            ?>
-                    </tr>
-                <?php }
-                ?>
-            </tbody>
-        </table>
-        <div id="result"></div>
+            </table>
+        </form>
     </body>
 </html>
