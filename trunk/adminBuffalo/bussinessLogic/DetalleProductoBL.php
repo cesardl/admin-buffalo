@@ -38,7 +38,12 @@ class DetalleProductoBL {
     }
 
     public function deleteDetalleProducto($id_detalle_producto) {
-        return $this->dpDao->deleteDetalleProducto($id_detalle_producto);
+        $result = $this->dpDao->deleteDetalleProducto($id_detalle_producto);
+        if ($result == 1) {
+            return "Se elimino $result detalle de producto";
+        } else {
+            return "No se pudo eliminar el detalle de producto";
+        }
     }
 
 }

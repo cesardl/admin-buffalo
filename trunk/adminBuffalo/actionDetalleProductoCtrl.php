@@ -24,12 +24,12 @@
                     $bl->deleteDetalleProducto($id_detalle_producto);
                 }
             } else {
-                $descripcion = trim($_POST["descripcion$i"]);
+                $descripcion = htmlspecialchars(trim($_POST["descripcion$i"]));
 
                 if (strlen($descripcion) != 0) {
                     $detalleProducto = new DetalleProducto();
-                    $detalleProducto->setId_detalle_producto($id_detalle_producto);
-                    $detalleProducto->setTitulo(strtoupper(trim($_POST["titulo$i"])));
+                    $detalleProducto->setId_detalle_producto(htmlspecialchars($id_detalle_producto));
+                    $detalleProducto->setTitulo(htmlspecialchars(strtoupper(trim($_POST["titulo$i"]))));
                     $detalleProducto->setDescripcion($descripcion);
 
                     $foto_detalle = $_POST["v_imagen$i"];
