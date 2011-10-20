@@ -2,18 +2,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
         <title>Bienvenido</title>
     </head>
     <body>
         <?php include 'menu.html'; ?>
-        
+
         <div style="text-align: right; height: 40px;">
             <a href="formProducto.php?action=N">Nuevo producto</a>
         </div>
         <table border="1">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Nro</th>
                     <th>Modelo</th>
                     <th>Descripcion</th>
                     <th>Master</th>

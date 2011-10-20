@@ -1,0 +1,22 @@
+/* 
+    Document   : style
+    Created on : 20/10/2011, 01:27:57 AM
+    Author     : Cesardl
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    font-size: 12px;
+}
+

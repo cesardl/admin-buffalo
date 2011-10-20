@@ -12,10 +12,20 @@ and open the template in the editor.
         <?php
         $cadena = '';
         if (empty($cadena)) {
-            echo 'vacio';
+        echo 'vacio';
         } else {
-         echo      'no vacio';
+        echo 'no vacio';
         }
+        echo '<hr>';
+        $i = 0;
+        if (!($i % 2)) {
+        echo "This number is not even.";
+        } else {
+            echo "This number is even.";
+        }
+        echo '<hr>';
+        $vector = array('hola','chau','como esats');
+        echo $vector[0].'-'.$vector[1].'-'.$vector[2];
         ?>
     </body>
 </html>

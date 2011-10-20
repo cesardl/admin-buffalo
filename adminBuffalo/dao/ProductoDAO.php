@@ -110,7 +110,7 @@ class ProductoDAO {
             id_master = '{$master->getId_master()}' 
             WHERE id_producto = {$producto->getId_producto()}";
         $result = mysql_query($query, $conexion->getConnection());
-        echo $query.' - '.$result;
+
         if (isset($result)) {
             return $result;
         } else {
