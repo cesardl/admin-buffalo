@@ -56,7 +56,7 @@ if ($band == 1) {
                             })
                         }
                     });
-                                                                                        
+                                                                                            
                     $('#result').click(function() {
                         $(this).hide();
                     });
@@ -76,7 +76,7 @@ if ($band == 1) {
                         <th>Modelo</th>
                         <th>Descripci&oacute;n</th>
                         <th>Clase</th>
-                        <th colspan="3">Acciones</th>
+                        <th colspan="4">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,6 +97,7 @@ if ($band == 1) {
                                 echo '<td>' . utf8_encode($productos[$i]->getDescripcion()) . '</td>';
                                 echo "<td>{$master->getClase()}</td>";
                                 echo "<td><a href='formDetalles.php?id_producto={$productos[$i]->getId_producto()}'>Detalles</a></td>";
+                                echo "<td><a href='formColores.php?id_producto={$productos[$i]->getId_producto()}'>Colores</a></td>";
                                 echo "<td><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}'>Editar</a></td>";
                                 echo "<td><a href='#{$productos[$i]->getId_producto()}' class='a_delete'>Eliminar</a></td>";
                                 ?>

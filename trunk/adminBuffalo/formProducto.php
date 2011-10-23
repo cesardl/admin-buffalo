@@ -29,26 +29,11 @@ if (!isset($_SESSION['user'])) {
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
             <script type="text/javascript" src="scritps/jquery.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("#vehiculo").change(function(){
-                        $.post("VehiculoSelect.php",{
-                            veh_id:$(this).val()
-                        },function(data){
-                            $("#master").html(data);
-                        })
-                    });
-                                                    
-                    $('#btn_acept').click(function(){
-                        var master = $('#master');
-                        alert('me diste clic! '+master.html());
-                    });
-                });
-            </script>
+            <script type="text/javascript" src="scritps/funciones_producto.js"></script>
             <title>Formulario de producto</title>
         </head>
         <body>
-            <form method="POST" action="actionProductoCtrl.php" enctype="multipart/form-data">
+            <form id="formProducto" method="POST" action="actionProductoCtrl.php" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <td colspan="2"><h3><?php echo $title ?></h3></td>
