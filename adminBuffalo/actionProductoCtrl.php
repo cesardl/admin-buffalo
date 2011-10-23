@@ -142,10 +142,10 @@ function uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_te
         } else {
             if ($ubicacion == 0) {
                 $ruta = "..\\images\\principal\\" . $nombre_archivo;
-                $path = '/images/principal/' . $nombre_archivo;
+                $path = 'images/principal/' . $nombre_archivo;
             } else {
                 $ruta = "..\\images\\zoom\\" . $nombre_archivo;
-                $path = '/images/zoom/' . $nombre_archivo;
+                $path = 'images/zoom/' . $nombre_archivo;
             }
             if (is_uploaded_file($imagen_temp)) {
                 move_uploaded_file($imagen_temp, $ruta);
