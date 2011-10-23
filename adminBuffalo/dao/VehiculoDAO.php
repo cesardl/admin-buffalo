@@ -48,7 +48,7 @@ class VehiculoDAO {
         return $master;
     }
 
-    public function getMasterByVehiculos($id_vehiculo) {
+    public function getMastersByVehiculo($id_vehiculo) {
         $conexion = new Connection();
         $query = "SELECT id_master, clase FROM master WHERE id_vehiculo = $id_vehiculo";
         $result = mysql_query($query, $conexion->getConnection());

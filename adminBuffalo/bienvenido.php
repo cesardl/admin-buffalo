@@ -4,22 +4,37 @@
  * and open the template in the editor.
  */
 include_once 'bussinessLogic/UsuarioBL.php';
+session_start();
 
-$user = $_POST['user'];
-$passwd = $_POST['passwd'];
-
-$bl = new UsuarioBL();
-
-$usuario = $bl->getUsuario($user, $passwd);
-
-if ($usuario->getId() == 0) {
-    header("location: index.php");
+if (!isset($_POST['user'])) {
+    if (!isset($_SESSION['user'])) {
+        header("location: index.php?error=2");
+    } else {
+        $band = 1;
+    }
 } else {
-    session_start();
+    if (!isset($_SESSION['user'])) {
+        $user = $_POST['user'];
+        $passwd = $_POST['passwd'];
 
-    $_SESSION['user'] = $usuario->getUser();
-    $_SESSION['passwd'] = $usuario->getPasswd();
-    $_SESSION['id_usuario'] = $usuario->getId();
+        $bl = new UsuarioBL();
+
+        $usuario = $bl->getUsuario($user, $passwd);
+
+        if ($usuario->getId() == 0) {
+            header("location: index.php?error=1");
+        } else {
+            $_SESSION['user'] = $usuario->getUser();
+            $_SESSION['id_usuario'] = $usuario->getId();
+
+            $band = 1;
+        }
+    } else {
+        $band = 1;
+    }
+}
+
+if ($band == 1) {
     ?>
     <!DOCTYPE html>
     <html>
@@ -41,7 +56,7 @@ if ($usuario->getId() == 0) {
                             })
                         }
                     });
-                            
+                                                                                        
                     $('#result').click(function() {
                         $(this).hide();
                     });
@@ -60,7 +75,7 @@ if ($usuario->getId() == 0) {
                     <tr>
                         <th>Modelo</th>
                         <th>Descripci&oacute;n</th>
-                        <th>Master</th>
+                        <th>Clase</th>
                         <th colspan="3">Acciones</th>
                     </tr>
                 </thead>
@@ -86,12 +101,11 @@ if ($usuario->getId() == 0) {
                                 echo "<td><a href='#{$productos[$i]->getId_producto()}' class='a_delete'>Eliminar</a></td>";
                                 ?>
                         </tr>
-                    <?php }
-                    ?>
+                    <?php } ?>
                 </tbody>
             </table>
             <div id="result"></div>
         </body>
     </html>
-    <?php
-}?>
+<?php }
+?>

@@ -7,9 +7,9 @@ include_once 'domain/Master.php';
 include_once 'domain/Producto.php';
 include_once 'bussinessLogic/ProductoBL.php';
 
-$messages[0] = 'No es un archivo valido';
-$messages[1] = 'Ya existe es un archivo con ese nombre';
-$messages[2] = 'Tranferencia de imagen falló.';
+$messages = array('No es un archivo valido',
+    'Ya existe es un archivo con ese nombre',
+    'Tranferencia de imagen falló.');
 
 $title = $_POST['title'];
 $id_producto = $_POST['id_producto'];
@@ -126,7 +126,7 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
             }
         }
         ?>
-        <a href='index.php'>&lt;&lt; Regresar</a>
+        <a href='bienvenido.php'>&lt;&lt; Regresar</a>
     </body>
 </html>
 
