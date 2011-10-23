@@ -28,7 +28,7 @@ class VehiculoBL {
     }
 
     public function getMastersByVehiculo($id_vehiculo) {
-        return $this->vDao->getMasterByVehiculos($id_vehiculo);
+        return $this->vDao->getMastersByVehiculo($id_vehiculo);
     }
 
 }

@@ -15,7 +15,7 @@ root {
     display: block;
 }
 
-body {
+body, table {
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
     font-size: 12px;
 }

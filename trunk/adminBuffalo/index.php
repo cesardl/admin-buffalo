@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!--
 To change this template, choose Tools | Templates
 and open the template in the editor.
@@ -6,11 +7,26 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
         <title>Motos Buffalo</title>
     </head>
     <body>
-        <form id="frm1" name="frm1" action="bienvenido.php" method="POST">
-            <table width="600" border="1" align="center" cellpadding="15" cellspacing="0" bordercolor="#000000">
+        <form action="bienvenido.php" method="POST">
+            <table width="600" align="center" cellpadding="15" cellspacing="0">
+                <?php
+                if (isset($_REQUEST['error'])) {
+                    if ($_REQUEST['error'] == 1) {
+                        echo '<tr><td>Error al ingresar usuario o contraseña.</td></tr>';
+                    } else if ($_REQUEST['error'] == 2) {
+                        echo '<tr><td>Usted no tiene permisos para acceder a esta página.<br>
+                            Por favor registrese.
+                            </td></tr>';
+                    }
+                }
+                if (isset($_SESSION['user']) & isset($_REQUEST['param'])) {
+                    $_SESSION['user'] = NULL;
+                }
+                ?>
                 <tr>
                     <td>
                         <table width="400" border="0" align="center" cellpadding="0" cellspacing="0">

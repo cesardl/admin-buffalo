@@ -57,7 +57,7 @@
 
         $bl->insertOrUpdates($detallesProducto);
         ?>
-        <a href='index.php'>&lt;&lt; Regresar</a>
+        <a href='bienvenido.php'>&lt;&lt; Regresar</a>
     </body>
 </html>
 <?php
