@@ -24,12 +24,12 @@
                     $bl->deleteDetalleProducto($id_detalle_producto);
                 }
             } else {
-                $descripcion = htmlspecialchars(trim($_POST["descripcion$i"]));
-
+                $descripcion = cleanString($_POST["descripcion$i"]);
+                echo 'descripcion '.$descripcion;
                 if (strlen($descripcion) != 0) {
                     $detalleProducto = new DetalleProducto();
                     $detalleProducto->setId_detalle_producto(htmlspecialchars($id_detalle_producto));
-                    $detalleProducto->setTitulo(htmlspecialchars(strtoupper(trim($_POST["titulo$i"]))));
+                    $detalleProducto->setTitulo(strtoupper(cleanString($_POST["titulo$i"])));
                     $detalleProducto->setDescripcion($descripcion);
 
                     $foto_detalle = $_POST["v_imagen$i"];
@@ -37,7 +37,7 @@
                     $tipo_archivo = $_FILES["imagen$i"]['type'];
                     $tamano_archivo = $_FILES["imagen$i"]['size'];
                     $imagen_temp = $_FILES["imagen$i"]['tmp_name'];
-                    if (empty($foto_detalle)) {
+                    if ($tamano_archivo != 0) {
                         $foto_detalle = uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp, 0);
                         if (is_numeric($foto_detalle)) {
                             echo "No se ha podido cargar la imagen $nombre_archivo<br>$messages[$foto_detalle]";
@@ -70,8 +70,8 @@ function uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_te
                 strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "png") ) && ($tamano_archivo < 5000000))) {
             return 0;
         } else {
-            $ruta = "..\\images\\zoom\\" . $nombre_archivo;
-            $path = '/images/zoom/' . $nombre_archivo;
+            $ruta = "..\\images\\detalle\\" . $nombre_archivo;
+            $path = '/images/detalle/' . $nombre_archivo;
 
             if (is_uploaded_file($imagen_temp)) {
                 move_uploaded_file($imagen_temp, $ruta);
@@ -85,6 +85,10 @@ function uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_te
             }
         }
     }
+}
+
+function cleanString($cadena) {
+    return htmlspecialchars(trim($cadena));
 }
 ?>
 

@@ -65,19 +65,19 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
         <?php include 'menu.html' ?>
         <h3><?php echo $title ?></h3>
         <?php
-        if (empty($foto_detalle)) {
+        if ($tamano_archivo != 0) {
             $foto_detalle = uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp, 0);
         }
-        if (empty($foto_zoom1)) {
+        if ($tamano_archivo_z1 != 0) {
             $foto_zoom1 = uploadPhoto($tipo_archivo_z1, $tamano_archivo_z1, $nombre_archivo_z1, $imagen_temp_z1, 1);
         }
-        if (empty($foto_zoom2)) {
+        if ($tamano_archivo_z2 != 0) {
             $foto_zoom2 = uploadPhoto($tipo_archivo_z2, $tamano_archivo_z2, $nombre_archivo_z2, $imagen_temp_z2, 1);
         }
-        if (empty($foto_zoom3)) {
+        if ($tamano_archivo_z3 != 0) {
             $foto_zoom3 = uploadPhoto($tipo_archivo_z3, $tamano_archivo_z3, $nombre_archivo_z3, $imagen_temp_z3, 1);
         }
-        if (empty($foto_zoom4)) {
+        if ($tamano_archivo_z4 != 0) {
             $foto_zoom4 = uploadPhoto($tipo_archivo_z4, $tamano_archivo_z4, $nombre_archivo_z4, $imagen_temp_z4, 1);
         }
         if (empty($ficha_tecnica)) {
@@ -103,6 +103,8 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
             echo "No se ha podido cargar el archivo";
             echo "<a href='index.php'>Regresar</a>";
         } else {
+            echo "el modelo es $modelo<br>";
+            echo "$descripcion<br>";
             $producto = new Producto();
             $producto->setId_producto($id_producto);
             $producto->setModelo($modelo);

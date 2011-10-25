@@ -42,7 +42,7 @@ class DetalleProductoDAO {
         $query = "INSERT INTO detalleproducto(titulo,foto_detalle,descripcion,id_producto) 
             VALUES('{$detalleProducto->getTitulo()}',
             '{$detalleProducto->getFoto_detalle()}',
-            '{$detalleProducto->getDescripcion()}',
+            '" . htmlspecialchars($detalleProducto->getDescripcion()) . "',
             '{$detalleProducto->getId_producto()}' );";
 
         $result = mysql_query($query, $conexion->getConnection());
@@ -59,7 +59,7 @@ class DetalleProductoDAO {
         $query = "UPDATE detalleproducto SET
             titulo='{$detalleProducto->getTitulo()}', 
             foto_detalle='{$detalleProducto->getFoto_detalle()}', 
-            descripcion='{$detalleProducto->getDescripcion()}' 
+            descripcion='" . htmlspecialchars($detalleProducto->getDescripcion()) . "' 
             WHERE id_detalle_producto= {$detalleProducto->getId_detalle_producto()}";
 
         $result = mysql_query($query, $conexion->getConnection());

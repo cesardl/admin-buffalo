@@ -23,7 +23,6 @@ class ColorBL {
     public function getColores($id_color) {
         $colores = $this->cDao->getColores();
         for ($i = 0; $i < count($colores); $i++) {
-            echo "compara {$colores[$i]->getId_color()} - $id_color<br>";
             if ($colores[$i]->getId_color() == $id_color) {
                 $selected = 'selected';
             } else {

@@ -51,7 +51,7 @@ if (!isset($_SESSION['user'])) {
                                     <tr>
                                         <td>Descripcion</td>
                                         <td><textarea id="descripcion<?php echo $i ?>" name="descripcion<?php echo $i ?>" 
-                                                      style="height: 80px; width: 360px;"><?php echo utf8_encode($detalleProducto->getDescripcion()) ?></textarea>
+                                                      style="height: 80px; width: 360px;"><?php echo htmlspecialchars($detalleProducto->getDescripcion()) ?></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -62,7 +62,7 @@ if (!isset($_SESSION['user'])) {
                                             <?php
                                             $fprin = $detalleProducto->getFoto_detalle();
                                             if (!empty($fprin)) {
-                                                echo "<img src=\"..$fprin\" alt=\"Foto principal\" style=\"width: 5%;\" />";
+                                                echo "<img src=\"../$fprin\" alt=\"Foto principal\" style=\"width: 5%;\" />";
                                             }
                                             ?>
                                         </td>

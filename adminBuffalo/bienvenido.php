@@ -56,7 +56,7 @@ if ($band == 1) {
                             })
                         }
                     });
-                                                                                            
+                                                                                                    
                     $('#result').click(function() {
                         $(this).hide();
                     });
@@ -94,11 +94,11 @@ if ($band == 1) {
                             onmouseout="this.style.backgroundColor='#FFFFFF'">
                                 <?php
                                 echo "<td>{$productos[$i]->getModelo()}</td>";
-                                echo '<td>' . utf8_encode($productos[$i]->getDescripcion()) . '</td>';
+                                echo '<td>' . htmlspecialchars($productos[$i]->getDescripcion()) . '</td>';
                                 echo "<td>{$master->getClase()}</td>";
+                                echo "<td><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}'>Editar</a></td>";
                                 echo "<td><a href='formDetalles.php?id_producto={$productos[$i]->getId_producto()}'>Detalles</a></td>";
                                 echo "<td><a href='formColores.php?id_producto={$productos[$i]->getId_producto()}'>Colores</a></td>";
-                                echo "<td><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}'>Editar</a></td>";
                                 echo "<td><a href='#{$productos[$i]->getId_producto()}' class='a_delete'>Eliminar</a></td>";
                                 ?>
                         </tr>
