@@ -14,6 +14,7 @@ $(document).ready(function(){
     $('#btn_acept').click(function(){
         var master = $('#master');
         var modelo = $('#modelo');
+        var v_imagen = $('#v_imagen');
         var imagen = $('#imagen');
         var descripcion = $('#descripcion');
 
@@ -25,7 +26,7 @@ $(document).ready(function(){
                 alert('Debe ingresar un modelo de vehiculo');
                 return;
             } else {
-                if(jQuery.trim(imagen.val()) == 0) {
+                if(jQuery.trim(v_imagen.val()) == 0 && jQuery.trim(imagen.val()) == 0) {
                     alert('Debe seleccionar una imagen');
                     return;
                 } else {

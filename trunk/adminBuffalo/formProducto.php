@@ -89,12 +89,12 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <td>Foto principal</td>
                         <td>
-                            <input type="hidden" name="v_imagen" value="<?php echo $producto->getFoto_principal() ?>"/>
+                            <input type="hidden" id="v_imagen" name="v_imagen" value="<?php echo $producto->getFoto_principal() ?>"/>
                             <input type="file" id="imagen" name="imagen" />
                             <?php
                             $fprin = $producto->getFoto_principal();
                             if (!empty($fprin)) {
-                                echo "<img src=\"..$fprin\" alt=\"Foto principal\" style=\"width: 5%;\" />";
+                                echo "<img src=\"../$fprin\" alt=\"Foto principal\" style=\"width: 5%;\" />";
                             }
                             ?>
                         </td>
@@ -102,12 +102,12 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <td>Foto Zoom 1</td>
                         <td>
-                            <input type="hidden" name="v_zoom1" value="<?php echo $producto->getFoto_zoom_1() ?>" />
+                            <input type="hidden" id="v_zoom1" name="v_zoom1" value="<?php echo $producto->getFoto_zoom_1() ?>" />
                             <input type="file" id="zoom1" name="zoom1" />
                             <?php
                             $zoom1 = $producto->getFoto_zoom_1();
                             if (!empty($zoom1)) {
-                                echo "<img src=\"..$zoom1\" alt=\"Zoom 1\" style=\"width: 5%;\" />";
+                                echo "<img src=\"../$zoom1\" alt=\"Zoom 1\" style=\"width: 5%;\" />";
                             }
                             ?>
                         </td>
@@ -115,12 +115,12 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <td>Foto Zoom 2</td>
                         <td>
-                            <input type="hidden" name="v_zoom2" value="<?php echo $producto->getFoto_zoom_2() ?>" />
+                            <input type="hidden" id="v_zoom2" name="v_zoom2" value="<?php echo $producto->getFoto_zoom_2() ?>" />
                             <input type="file" id="zoom2" name="zoom2" />
                             <?php
                             $zoom2 = $producto->getFoto_zoom_2();
                             if (!empty($zoom2)) {
-                                echo "<img src=\"..$zoom2\" alt=\"Zoom 2\" style=\"width: 5%;\" />";
+                                echo "<img src=\"../$zoom2\" alt=\"Zoom 2\" style=\"width: 5%;\" />";
                             }
                             ?>
                         </td>
@@ -128,12 +128,12 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <td>Foto Zoom 3</td>
                         <td>
-                            <input type="hidden" name="v_zoom3" value="<?php echo $producto->getFoto_zoom_3() ?>" />
+                            <input type="hidden" id="v_zoom3" name="v_zoom3" value="<?php echo $producto->getFoto_zoom_3() ?>" />
                             <input type="file" id="zoom3" name="zoom3" />
                             <?php
                             $zoom3 = $producto->getFoto_zoom_3();
                             if (!empty($zoom3)) {
-                                echo "<img src=\"..$zoom3\" alt=\"Zoom 3\" style=\"width: 5%;\" />";
+                                echo "<img src=\"../$zoom3\" alt=\"Zoom 3\" style=\"width: 5%;\" />";
                             }
                             ?>
                         </td>
@@ -141,12 +141,12 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <td>Foto Zoom 4</td>
                         <td>
-                            <input type="hidden" name="v_zoom4" value="<?php echo $producto->getFoto_zoom_4() ?>" />
+                            <input type="hidden" id="v_zoom4" name="v_zoom4" value="<?php echo $producto->getFoto_zoom_4() ?>" />
                             <input type="file" id="zoom4" name="zoom4" />
                             <?php
                             $zoom4 = $producto->getFoto_zoom_4();
                             if (!empty($zoom4)) {
-                                echo "<img src=\"..$zoom4\" alt=\"Zoom 4\" style=\"width: 5%;\" />";
+                                echo "<img src=\"../$zoom4\" alt=\"Zoom 4\" style=\"width: 5%;\" />";
                             }
                             ?>
                         </td>
@@ -167,7 +167,7 @@ if (!isset($_SESSION['user'])) {
                     <tr>
                         <td>Descripci&oacute;n</td>
                         <td>
-                            <textarea id="descripcion" name="descripcion"  style="height: 80px; width: 360px;"><?php echo utf8_encode($producto->getDescripcion()) ?></textarea>
+                            <textarea id="descripcion" name="descripcion"  style="height: 80px; width: 360px;"><?php echo htmlspecialchars($producto->getDescripcion()) ?></textarea>
                         </td>
                     </tr>
                     <tr>
