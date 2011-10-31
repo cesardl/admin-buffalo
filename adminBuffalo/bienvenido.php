@@ -56,7 +56,7 @@ if ($band == 1) {
                             })
                         }
                     });
-                                                                                                    
+                                                                                                        
                     $('#result').click(function() {
                         $(this).hide();
                     });

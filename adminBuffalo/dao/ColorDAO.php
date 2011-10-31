@@ -48,12 +48,12 @@ class ColorDAO {
         if ($total_registros > 0) {
             while ($row = mysql_fetch_assoc($result)) {
                 $colorProducto = new ColorProducto();
-                $colorProducto->setId($row['c_color']);
+                $colorProducto->setId($row['id']);
 
                 $color_1 = new Color();
                 $color_1->setId_color($row['id_color_1']);
                 $colorProducto->setColor_1($color_1);
-                
+
                 $color_2 = new Color();
                 $color_2->setId_color($row['id_color_2']);
                 $colorProducto->setColor_2($color_2);
@@ -67,6 +67,38 @@ class ColorDAO {
             }
         }
         return $coloresProducto;
+    }
+
+    public function insert($colorproducto) {
+        $conexion = new Connection();
+        $query = "INSERT INTO colorproducto(id_producto,id_color_1,id_color_2) 
+            VALUES({$colorproducto->getProducto()->getId_producto()},
+            {$colorproducto->getColor_1()->getId_color()},
+            {$colorproducto->getColor_2()->getId_color()} );";
+
+        $result = mysql_query($query, $conexion->getConnection());
+
+        if (isset($result)) {
+            return $result;
+        } else {
+            return -1;
+        }
+    }
+
+    public function update($colorproducto) {
+        $conexion = new Connection();
+        $query = "UPDATE colorproducto SET
+            id_color_1={$colorproducto->getColor_1()->getId_color()}, 
+            id_color_2={$colorproducto->getColor_2()->getId_color()} 
+            WHERE id= {$colorproducto->getId()}";
+
+        $result = mysql_query($query, $conexion->getConnection());
+
+        if (isset($result)) {
+            return $result;
+        } else {
+            return -1;
+        }
     }
 
 }

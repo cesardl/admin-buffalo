@@ -25,6 +25,7 @@ and open the template in the editor.
                 }
                 if (isset($_SESSION['user']) & isset($_REQUEST['param'])) {
                     $_SESSION['user'] = NULL;
+                    echo '<tr><td>Gracias por utilizar el administrador.</td></tr>';
                 }
                 ?>
                 <tr>

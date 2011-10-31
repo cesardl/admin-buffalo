@@ -37,6 +37,23 @@ class ColorBL {
         return $this->cDao->getColoresProductoByIdProducto($id_producto);
     }
 
+    public function insertOrUpdates($coloresProducto) {
+        echo '<br>Total a procesar ' . count($coloresProducto) . '<br>';
+        for ($i = 0; $i < count($coloresProducto); $i++) {
+            $colorProducto = new ColorProducto();
+
+            $colorProducto = $coloresProducto[$i];
+
+            if ($colorProducto->getId() == 0) {
+                if ($colorProducto->getColor_1()->getId_color() != 0) {
+                    $val = $this->cDao->insert($colorProducto);
+                }
+            } else {
+                $val = $this->cDao->update($colorProducto);
+            }
+        }
+    }
+
 }
 
 ?>

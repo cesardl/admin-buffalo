@@ -27,13 +27,13 @@ class DetalleProductoBL {
 
     public function insertOrUpdates($detallesProducto) {
         for ($i = 0; $i < count($detallesProducto); $i++) {
-            $detalleProducto = new DetalleProducto();
             $detalleProducto = $detallesProducto[$i];
             if ($detalleProducto->getId_detalle_producto() == 0) {
                 $val = $this->dpDao->insert($detalleProducto);
             } else {
                 $val = $this->dpDao->update($detalleProducto);
             }
+            echo $val.'<br>';
         }
     }
 

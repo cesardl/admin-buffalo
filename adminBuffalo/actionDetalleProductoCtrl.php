@@ -25,7 +25,7 @@
                 }
             } else {
                 $descripcion = cleanString($_POST["descripcion$i"]);
-                echo 'descripcion '.$descripcion;
+                echo 'descripcion ' . $descripcion;
                 if (strlen($descripcion) != 0) {
                     $detalleProducto = new DetalleProducto();
                     $detalleProducto->setId_detalle_producto(htmlspecialchars($id_detalle_producto));
@@ -60,32 +60,8 @@
         <a href='bienvenido.php'>&lt;&lt; Regresar</a>
     </body>
 </html>
+
 <?php
-
-function uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp) {
-    if ($tamano_archivo == 0) {
-        return '';
-    } else {
-        if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpg") ||
-                strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "png") ) && ($tamano_archivo < 5000000))) {
-            return 0;
-        } else {
-            $ruta = "..\\images\\detalle\\" . $nombre_archivo;
-            $path = '/images/detalle/' . $nombre_archivo;
-
-            if (is_uploaded_file($imagen_temp)) {
-                move_uploaded_file($imagen_temp, $ruta);
-                if (file_exists($ruta)) {
-                    return $path;
-                } else {
-                    return 1;
-                }
-            } else {
-                return 2;
-            }
-        }
-    }
-}
 
 function cleanString($cadena) {
     return htmlspecialchars(trim($cadena));

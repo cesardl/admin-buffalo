@@ -26,7 +26,7 @@ if (!isset($_SESSION['user'])) {
             <title>Formulario de colores</title>
         </head>
         <body>
-            <form id="formColores" method="POST" action="actionProductoCtrl.php" enctype="multipart/form-data">
+            <form id="formColores" method="POST" action="actionColor.php" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <td colspan="2"><h3>Seleccione las combinaciones de colores</h3></td>
@@ -38,16 +38,19 @@ if (!isset($_SESSION['user'])) {
                         $cp_colorProducto = $coloresProducto[$i];
                         ?>
                         <tr>
-                            <td>Color <?php echo $i + 1 ?></td>
                             <td>
-                                <select id="color_1" name="color_1">
+                                Color <?php echo $i + 1 ?>
+                                <input type="hidden" name="id<?php echo $i ?>" value="<?php echo $cp_colorProducto->getId() ?>" />
+                            </td>
+                            <td>
+                                <select name="color_1_<?php echo $i ?>">
                                     <option value="0">[Seleccione]</option>
                                     <?php echo $bl->getColores($cp_colorProducto->getColor_1()->getId_color()) ?>
                                 </select>
                             </td>
                             <td>
-                                <select id="color_2" name="color_2">
-                                    <option value="0">[Seleccione]</option>
+                                <select name="color_2_<?php echo $i ?>">
+                                    <option value="0">[Seleccione si es necesario]</option>
                                     <?php echo $bl->getColores($cp_colorProducto->getColor_2()->getId_color()) ?>
                                 </select>
                             </td>
@@ -57,7 +60,7 @@ if (!isset($_SESSION['user'])) {
                     ?>
                     <tr>
                         <td colspan="2">
-                            <input id="btn_acept" type="button" name="name"value="Aceptar" /> 
+                            <input id="btn_acept" type="submit" name="name"value="Aceptar" /> 
                         </td>
                     </tr>
                 </table>
