@@ -15,8 +15,17 @@ root {
     display: block;
 }
 
-body, table {
+body {
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
     font-size: 12px;
+    padding: 10px;
 }
 
+.tdDescripcion {
+    padding: 8px;
+}
+
+.tdAccion {
+    text-align: center;
+    width: 4%;
+}

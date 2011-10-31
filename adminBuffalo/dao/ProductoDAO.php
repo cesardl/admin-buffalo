@@ -17,10 +17,10 @@ class ProductoDAO {
 
     public function getProductos() {
         $conexion = new Connection();
-        $query = "select id_producto, modelo, foto_principal, descripcion, foto_zoom_1, foto_zoom_2, 
-            foto_zoom_3, foto_zoom_4, ficha_tecnica, master.id_master as id_master, 
-            master.clase as clase, master.id_vehiculo as id_vehiculo from producto
-            inner join master on producto.id_master = master.id_master";
+        $query = "SELECT id_producto, modelo, foto_principal, descripcion, foto_zoom_1, foto_zoom_2, 
+            foto_zoom_3, foto_zoom_4, ficha_tecnica, master.id_master AS id_master, 
+            master.clase AS clase, master.id_vehiculo AS id_vehiculo FROM producto
+            INNER JOIN master ON producto.id_master = master.id_master";
         $result = mysql_query($query, $conexion->getConnection());
         $total_registros = mysql_num_rows($result);
 

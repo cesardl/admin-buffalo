@@ -28,7 +28,10 @@ class ColorBL {
             } else {
                 $selected = '';
             }
-            $combo_colores = $combo_colores . "<option $selected value=\"{$colores[$i]->getId_color()}\">{$colores[$i]->getNombre()}</option>";
+            $combo_colores = $combo_colores .
+                    "<option $selected value=\"{$colores[$i]->getId_color()}\" style=\"background-color: #{$colores[$i]->getCodigo()};color: #FFFFFF;\">
+                    {$colores[$i]->getNombre()}
+                    </option>";
         }
         return $combo_colores;
     }
