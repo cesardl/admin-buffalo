@@ -33,7 +33,6 @@ class DetalleProductoBL {
             } else {
                 $val = $this->dpDao->update($detalleProducto);
             }
-            echo $val.'<br>';
         }
     }
 

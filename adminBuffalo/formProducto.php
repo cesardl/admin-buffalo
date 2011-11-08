@@ -12,15 +12,16 @@ if (!isset($_SESSION['user'])) {
     $id_master = $_GET['id_master'];
     $id_producto = $_GET['id_producto'];
     $accion = $_GET['accion'];
+    $mod_prod = $_GET['mod_prod'];
 
     $productoBL = new ProductoBL();
 
     if ($accion == 'E') {
         $producto = $productoBL->getProductoById($id_producto);
-        $title = 'Editar producto';
+        $title = 'Editar producto ' . $mod_prod;
     } else {
         $producto = new Producto();
-        $title = 'Registrar producto';
+        $title = 'Registrar producto ' . $mod_prod;
     }
     ?>
     <!DOCTYPE html>
@@ -34,14 +35,14 @@ if (!isset($_SESSION['user'])) {
         </head>
         <body>
             <form id="formProducto" method="POST" action="actionProductoCtrl.php" enctype="multipart/form-data">
-                <table>
+                <table style="width: 75%;">
                     <tr>
-                        <td colspan="2"><h3><?php echo $title ?></h3></td>
-                        <td><a href="bienvenido.php">&lt;&lt; Volver</a></td>
+                        <td style="width: 150px;"><h3><?php echo $title ?></h3></td>
+                        <td style="text-align: right;"><a href="bienvenido.php">&lt;&lt; Volver</a></td>
                     <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $producto->getId_producto() ?>" />
                     </tr>
                     <tr>
-                        <td>Tipo vehiculo</td>
+                        <td class="tdLabel">Tipo vehiculo</td>
                         <td>
                             <select id="vehiculo" name="vehiculo" style="width: 120px;">
                                 <option value="0">[Seleccione]</option>
@@ -79,7 +80,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Modelo</td>
+                        <td class="tdLabel">Modelo</td>
                         <td>
                             <input type="text" id="modelo" name="modelo" 
                                    style="width: 180px;"
@@ -87,7 +88,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Foto principal</td>
+                        <td class="tdLabel">Foto principal</td>
                         <td>
                             <input type="hidden" id="v_imagen" name="v_imagen" value="<?php echo $producto->getFoto_principal() ?>"/>
                             <input type="file" id="imagen" name="imagen" />
@@ -100,7 +101,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Foto Zoom 1</td>
+                        <td class="tdLabel">Foto Zoom 1</td>
                         <td>
                             <input type="hidden" id="v_zoom1" name="v_zoom1" value="<?php echo $producto->getFoto_zoom_1() ?>" />
                             <input type="file" id="zoom1" name="zoom1" />
@@ -113,7 +114,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Foto Zoom 2</td>
+                        <td class="tdLabel">Foto Zoom 2</td>
                         <td>
                             <input type="hidden" id="v_zoom2" name="v_zoom2" value="<?php echo $producto->getFoto_zoom_2() ?>" />
                             <input type="file" id="zoom2" name="zoom2" />
@@ -126,7 +127,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Foto Zoom 3</td>
+                        <td class="tdLabel">Foto Zoom 3</td>
                         <td>
                             <input type="hidden" id="v_zoom3" name="v_zoom3" value="<?php echo $producto->getFoto_zoom_3() ?>" />
                             <input type="file" id="zoom3" name="zoom3" />
@@ -139,7 +140,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Foto Zoom 4</td>
+                        <td class="tdLabel">Foto Zoom 4</td>
                         <td>
                             <input type="hidden" id="v_zoom4" name="v_zoom4" value="<?php echo $producto->getFoto_zoom_4() ?>" />
                             <input type="file" id="zoom4" name="zoom4" />
@@ -152,7 +153,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Ficha tecnica</td>
+                        <td class="tdLabel">Ficha t&eacute;cnica</td>
                         <td>
                             <input type="hidden" name="v_fichtec" value="<?php echo $producto->getFicha_tecnica() ?>" />
                             <input type="file" id="fichtec" name="fichtec" />
@@ -165,9 +166,9 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td>Descripci&oacute;n</td>
+                        <td class="tdLabel">Descripci&oacute;n</td>
                         <td>
-                            <textarea id="descripcion" name="descripcion"  style="height: 80px; width: 360px;"><?php echo htmlspecialchars($producto->getDescripcion()) ?></textarea>
+                            <textarea id="descripcion" name="descripcion"  style="height: 80px; width: 360px;"><?php echo utf8_encode($producto->getDescripcion()) ?></textarea>
                         </td>
                     </tr>
                     <tr>

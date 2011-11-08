@@ -84,8 +84,9 @@ class ProductoDAO {
             VALUES ('{$producto->getModelo()}','{$producto->getFoto_principal()}',
             '{$producto->getFoto_zoom_1()}','{$producto->getFoto_zoom_2()}',
             '{$producto->getFoto_zoom_3()}','{$producto->getFoto_zoom_4()}',
-            '" . utf8_encode($producto->getDescripcion()) . "','{$producto->getFicha_tecnica()}',
+            '" . ($producto->getDescripcion()) . "','{$producto->getFicha_tecnica()}',
             {$master->getId_master()})";
+
         $result = mysql_query($query, $conexion->getConnection());
 
         if (isset($result)) {
@@ -100,7 +101,7 @@ class ProductoDAO {
         $master = $producto->getMaster();
 
         $query = "UPDATE producto SET modelo = '{$producto->getModelo()}', 
-            descripcion = '" . utf8_encode($producto->getDescripcion()) . "', 
+            descripcion = '" . ($producto->getDescripcion()) . "', 
             foto_principal = '{$producto->getFoto_principal()}',
             foto_zoom_1 = '{$producto->getFoto_zoom_1()}', 
             foto_zoom_2 = '{$producto->getFoto_zoom_2()}', 
@@ -109,6 +110,7 @@ class ProductoDAO {
             ficha_tecnica = '{$producto->getFicha_tecnica()}', 
             id_master = '{$master->getId_master()}' 
             WHERE id_producto = {$producto->getId_producto()}";
+
         $result = mysql_query($query, $conexion->getConnection());
 
         if (isset($result)) {
