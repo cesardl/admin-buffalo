@@ -103,8 +103,6 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
             echo "No se ha podido cargar el archivo";
             echo "<a href='index.php'>Regresar</a>";
         } else {
-            echo "el modelo es $modelo<br>";
-            echo "$descripcion<br>";
             $producto = new Producto();
             $producto->setId_producto($id_producto);
             $producto->setModelo($modelo);
@@ -143,10 +141,10 @@ function uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_te
             return 0;
         } else {
             if ($ubicacion == 0) {
-                $ruta = "..\\images\\principal\\" . $nombre_archivo;
+                $ruta = "../images/principal/" . $nombre_archivo;
                 $path = 'images/principal/' . $nombre_archivo;
             } else {
-                $ruta = "..\\images\\zoom\\" . $nombre_archivo;
+                $ruta = "../images/zoom/" . $nombre_archivo;
                 $path = 'images/zoom/' . $nombre_archivo;
             }
             if (is_uploaded_file($imagen_temp)) {
@@ -170,7 +168,7 @@ function uploadPDF($tipo_archivo, $tamano_archivo, $nombre_archivo, $pdf_temp) {
         if (!strpos($tipo_archivo, "pdf")) {
             return 0;
         } else {
-            $ruta = "..\\ficha_tecnica\\" . $nombre_archivo;
+            $ruta = "../ficha_tecnica/" . $nombre_archivo;
             $path = '/ficha_tecnica/' . $nombre_archivo;
             if (is_uploaded_file($pdf_temp)) {
                 move_uploaded_file($pdf_temp, $ruta);
@@ -187,6 +185,6 @@ function uploadPDF($tipo_archivo, $tamano_archivo, $nombre_archivo, $pdf_temp) {
 }
 
 function cleanString($cadena) {
-    return htmlspecialchars(trim($cadena));
+    return (trim($cadena));
 }
 ?>

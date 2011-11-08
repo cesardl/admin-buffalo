@@ -10,11 +10,7 @@ if (!isset($_POST['user'])) {
     if (!isset($_SESSION['user'])) {
         header("location: index.php?error=2");
     } else {
-        if (!isset($_POST['error'])) {
-            header("location: index.php?error=1");
-        } else {
-            $band = 1;
-        }
+        $band = 1;
     }
 } else {
     if (is_null($_SESSION['user'])) {
@@ -60,7 +56,7 @@ if ($band == 1) {
                             })
                         }
                     });
-                                                                                                                                                                                        
+                                                                                                                                                                                                
                     $('#result').click(function() {
                         $(this).hide();
                     });
@@ -71,12 +67,14 @@ if ($band == 1) {
         <body>
             <table style="text-align: right; width: 100%;">
                 <tr>
-                    <td colspan="2"><a href="index.php?param=1">Cerrar sesi&oacute;n</a></td>
+                    <td colspan="2" style="font-weight: bold;">
+                        <a href="index.php?param=1">Cerrar sesi&oacute;n</a>
+                    </td>
                 </tr>
                 <tr><td colspan="2"><hr /></td></tr>
                 <tr>
                     <td style="font-weight: bold; font-size: 14px; text-align: left;">
-                        Mantenimiento de vehiculos
+                        Mantenimiento de veh&iacute;culos
                     </td>
                     <td><a href="formProducto.php?action=N">Nuevo producto</a></td>
                 </tr>
@@ -107,10 +105,10 @@ if ($band == 1) {
                                 <?php
                                 echo "<td>{$master->getClase()}</td>";
                                 echo "<td>{$productos[$i]->getModelo()}</td>";
-                                echo '<td class="tdDescripcion">' . htmlspecialchars($productos[$i]->getDescripcion()) . '</td>';
-                                echo "<td class='tdAccion'><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}'>Editar</a></td>";
-                                echo "<td class='tdAccion'><a href='formDetalles.php?id_producto={$productos[$i]->getId_producto()}'>Detalles</a></td>";
-                                echo "<td class='tdAccion'><a href='formColores.php?id_producto={$productos[$i]->getId_producto()}'>Colores</a></td>";
+                                echo '<td class="tdDescripcion">' . utf8_encode($productos[$i]->getDescripcion()) . '</td>';
+                                echo "<td class='tdAccion'><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}&mod_prod={$productos[$i]->getModelo()}'>Editar</a></td>";
+                                echo "<td class='tdAccion'><a href='formDetalles.php?id_producto={$productos[$i]->getId_producto()}&mod_prod={$productos[$i]->getModelo()}'>Detalles</a></td>";
+                                echo "<td class='tdAccion'><a href='formColores.php?id_producto={$productos[$i]->getId_producto()}&mod_prod={$productos[$i]->getModelo()}'>Colores</a></td>";
                                 echo "<td class='tdAccion'><a href='#{$productos[$i]->getId_producto()}' class='a_delete'>Eliminar</a></td>";
                                 ?>
                         </tr>

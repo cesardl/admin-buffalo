@@ -25,12 +25,11 @@
                 }
             } else {
                 $descripcion = cleanString($_POST["descripcion$i"]);
-                echo 'descripcion ' . $descripcion;
                 if (strlen($descripcion) != 0) {
                     $detalleProducto = new DetalleProducto();
-                    $detalleProducto->setId_detalle_producto(htmlspecialchars($id_detalle_producto));
+                    $detalleProducto->setId_detalle_producto(cleanString($id_detalle_producto));
                     $detalleProducto->setTitulo(strtoupper(cleanString($_POST["titulo$i"])));
-                    $detalleProducto->setDescripcion($descripcion);
+                    $detalleProducto->setDescripcion(utf8_decode($descripcion));
 
                     $foto_detalle = $_POST["v_imagen$i"];
                     $nombre_archivo = $_FILES["imagen$i"]['name'];
@@ -38,7 +37,7 @@
                     $tamano_archivo = $_FILES["imagen$i"]['size'];
                     $imagen_temp = $_FILES["imagen$i"]['tmp_name'];
                     if ($tamano_archivo != 0) {
-                        $foto_detalle = uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp, 0);
+                        $foto_detalle = uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp);
                         if (is_numeric($foto_detalle)) {
                             echo "No se ha podido cargar la imagen $nombre_archivo<br>$messages[$foto_detalle]";
                             echo "Intente carga la imagen de nuevo<br>";
@@ -53,7 +52,7 @@
             }
         }
 
-        echo '<br><br>Total a procesar ' . count($detallesProducto) . '<br>';
+        echo '<br><h2>Total a procesar: ' . count($detallesProducto) . ' vehiculo(s)</h2><br>';
 
         $bl->insertOrUpdates($detallesProducto);
         ?>
@@ -63,8 +62,32 @@
 
 <?php
 
+function uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_temp) {
+    if ($tamano_archivo == 0) {
+        return '';
+    } else {
+        if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpg") ||
+                strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "png") ) && ($tamano_archivo < 5000000))) {
+            return 0;
+        } else {
+            $ruta = "../images/detalle/" . $nombre_archivo;
+            $path = 'images/detalle/' . $nombre_archivo;
+            if (is_uploaded_file($imagen_temp)) {
+                move_uploaded_file($imagen_temp, $ruta);
+                if (file_exists($ruta)) {
+                    return $path;
+                } else {
+                    return 1;
+                }
+            } else {
+                return 2;
+            }
+        }
+    }
+}
+
 function cleanString($cadena) {
-    return htmlspecialchars(trim($cadena));
+    return (trim($cadena));
 }
 ?>
 

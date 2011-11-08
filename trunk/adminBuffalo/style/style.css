@@ -27,5 +27,10 @@ body {
 
 .tdAccion {
     text-align: center;
-    width: 4%;
+    width: 6%;
+}
+
+.tdLabel {
+    padding-right: 10px;
+    text-align: right;
 }
