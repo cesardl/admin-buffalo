@@ -1,0 +1,538 @@
+@charset "utf-8";
+
+
+body {
+	margin: 0px;
+	background: url(../images/bg_home.jpg) center no-repeat;
+}
+
+.clear { clear:both }
+/*--------textos-----------------*/
+
+.txt_pie_11p {
+	font-family:Arial;
+	font-size:11px;
+	color:#959595;
+}
+.txt_piecom_10p {
+	font-family:Arial;
+	font-size:10px;
+	color:#959595;
+}
+.txt_quietitu_20p {
+	font-family:Arial;
+	font-size:20px;
+	color:#FFFFFF;
+}
+.txt_prodtitu_17p {
+	font-family:Arial;
+	font-size:17px;
+	color:#FFFFFF;
+}
+.txt_quiesubti_17p {
+	font-family:Arial;
+	font-size:17px;
+	color:#ff6600;
+}
+.txt_quierojitas_11p {
+	font-family:Arial;
+	font-size:11px;
+	color:#ff0000;
+}
+.txt_contacsubti_12p {
+	font-family:Arial;
+	font-size:12px;
+	color:#ff6600;
+}
+.txt_ubicsitio_12p {
+	font-family:Arial;
+	font-size:12px;
+	color:#FFFFFF;
+}
+.txt_prodtitu_40p {
+	font-family:Arial;
+	font-size:40px;
+	color:#ff0000;
+}
+.txt_prod_12p {
+	font-family:Arial;
+	font-size:12px;
+	color:#959595;
+}
+
+/*-----------botones--------------*/
+.btn_cabecera_home a {
+   background-image: url(../images/btn_home.jpg);
+   display: block;
+   width: 79px;
+   height: 50px;
+}
+.btn_cabecera_home a:hover {
+   background-position:left bottom;
+}
+.btn_cabecera_quienes a {
+   background-image: url(../images/btn_quienes.jpg);
+   display: block;
+   width: 140px;
+   height: 50px;
+}
+.btn_cabecera_quienes a:hover {
+   background-position:left bottom;
+}
+.btn_cabecera_productos a {
+   background-image: url(../images/btn_productos.jpg);
+   display: block;
+   width: 105px;
+   height: 50px;
+}
+.btn_cabecera_productos a:hover {
+   background-position:left bottom;
+}
+.btn_cabecera_ubicanos a {
+   background-image: url(../images/btn_ubicanos.jpg);
+   display: block;
+   width: 100px;
+   height: 50px;
+}
+.btn_cabecera_ubicanos a:hover {
+   background-position:left bottom;
+}
+.btn_cabecera_contactanos a {
+   background-image: url(../images/btn_contactanos.jpg);
+   display: block;
+   width: 121px;
+   height: 50px;
+}
+.btn_cabecera_contactanos a:hover {
+   background-position:left bottom;
+}
+/*------------FLOTANTES----------------*/
+#index_cabecera_logo {
+	position: absolute;
+	left:0px;
+	top:264px;
+	/*width:300px;
+	height:65px;*/
+	width:208px;
+	height:169px;
+	z-index:1000;
+}
+#ubicanos_btn_vermapa {
+	position: absolute;
+	left:335px;
+	top:0px;
+	/*width:300px;
+	height:65px;*/
+	width:67px;
+	height:17px;
+	z-index:1000;
+}
+#product_btn_zoom {
+	position: absolute;
+	left:29px;
+	top:71px;
+	/*width:300px;
+	height:65px;*/
+	width:60px;
+	height:18px;
+	z-index:1000;
+}
+/*----------------------------------*/
+#index_cabecera {
+	height: 319px;
+	width: 100%;
+	background:url(../images/bg_cabecera_top.jpg) center repeat-x;
+}
+#bg_cabecera {
+	background-image: url(../images/bg_cabecera_contenido.jpg);
+	height: 319px;
+	width: 982px;
+	margin-right: auto;
+	margin-left: auto;
+	position:relative;
+}
+.botonera {
+	float: left;
+	height: 50px;
+	width: 630px;
+	padding-top:269px;
+	padding-left:236px;
+}
+.boton_home {
+	float: left;
+	height: 50px;
+	width: 79px;
+	margin-right:21px;
+}
+.boton_quienes {
+	float: left;
+	height: 50px;
+	width: 140px;
+	margin-right:21px;
+}
+.boton_productos {
+	float: left;
+	height: 50px;
+	width: 105px;
+	margin-right:21px;
+}
+.boton_ubicanos {
+	float: left;
+	height: 50px;
+	width: 100px;
+	margin-right:21px;
+}
+.boton_contactanos {
+	float: left;
+	height: 50px;
+	width: 121px;
+}
+#all_contenido_home {
+	height: 466px;
+	width: 100%;
+	background: center url(../images/home_bg_in.jpg) no-repeat;
+	overflow:hidden;
+}
+#in_home {
+	height: 466px;
+	width: 982px;
+	margin-right: auto;
+	margin-left: auto;
+	position:relative;
+}
+#all_pie_home {
+	height: 38px;
+	width: 100%;
+	background: center url(../images/pie_bg.jpg) no-repeat;
+}
+#pie_home {
+	/*height: 38px;
+	width: 982px;*/
+	height: 29px;
+	width: 964px;
+	margin-right: auto;
+	margin-left: auto;
+	position:relative;
+	padding-top:9px;
+	padding-left:18px;
+}
+.pie_megusta {
+	float: left;
+	height: 24px;
+	width: 319px;
+}
+.pie_derechos {
+	float: left;
+	/*height: 17px;
+	width: 508px;*/
+	height: 17px;
+	width: 498px;
+	padding-left:10px;
+}
+.pie_compartir {
+	float: left;
+	height: 17px;
+	width: 68px;
+}
+.pie_face {
+	float: left;
+	height: 27px;
+	width: 21px;
+}
+#quienes_contenido {
+	height: 466px;
+	width: 100%;
+	background: center url(../images/quienes_bg_in.jpg) no-repeat;
+	overflow:hidden;
+}
+#in_quienes {
+	height: 466px;
+	width: 982px;
+	margin-right: auto;
+	margin-left: auto;
+	position:relative;
+}
+.quienes_bg {
+	background-image: url(../images/quienes_img_bg.jpg);
+	float: left;
+	height: 466px;
+	width: 774px;
+	margin-left:208px;
+}
+.quienes_texto {
+	float: left;
+	height: auto;
+	width: 433px;
+	padding-top:20px;
+	padding-left:28px;
+}
+.productos_texto_top {
+	float: left;
+	/*height: 49px;*/
+	height: 40px;
+	width: 629px;
+	padding-top:9px;
+	padding-left:235px;
+}
+.prod_motocicletas {
+	float: left;
+	height: 417px;
+	width: 242px;
+	padding-left:205px;
+}
+.prod_furgones {
+	float: left;
+	height: 417px;
+	width: 239px;
+}
+.prod_mototaxis {
+	float: left;
+	height: 417px;
+	width: 296px;
+}
+.contact_bg {
+	background-image: url(../images/contactenos_img_bg.jpg);
+	float: left;
+	height: 466px;
+	width: 774px;
+	margin-left:208px;
+}
+.ubicanos_bg {
+	background-image: url(../images/bg_ubicanos.jpg);
+	float: left;
+	height: 466px;
+	width: 774px;
+	margin-left:208px;
+}
+.ubicanos_titu {
+	float: left;
+	height: 32px;
+	width: 701px;
+	border-bottom: 1px dotted #FFFFFF;
+	margin-left:20px;
+	padding-top:15px;
+}
+.ubicanos_subtirojo {
+	float: left;
+	height: 22px;
+	width: 291px;
+	/*width: 308px;*/
+	background-image:url(../images/ubicanos_bg_subti.jpg);
+	margin-top:9px;
+	margin-left:3px;
+	padding-left:17px;
+}
+.ubicanos_columna1 {
+	float: left;
+	height: auto;
+	width: 420px;
+}
+.ubicanos_columna2 {
+	float: left;
+	height: auto;
+	width: 324px;
+	border-left:1px solid #232323;
+	margin-top:10px;
+}
+.ubicano_cuadro1 {
+	float: left;
+	height: auto;
+	width: 395px;
+	border: 1px solid #232323;
+	padding: 4px 0px 4px 6px;
+	margin-left:10px;
+	margin-top:3px;
+	position:relative;
+}
+.ubicanos_dot {
+	float: left;
+	height: 10px;
+	width: 7px;
+}
+.ubicanos_datos {
+	float: left;
+	height: auto;
+	width: 385px;
+}
+.ubicanos_datos2 {
+	float: left;
+	height: auto;
+	width: 270px;
+}
+.ubicano_cuadro2 {
+	float: left;
+	height: auto;
+	width: 280px;
+	border: 1px solid #232323;
+	padding: 4px 3px 4px 6px;
+	margin-left:16px;
+	margin-top:3px;
+	position:relative;
+}
+.ubicano_cuadro3mapa {
+	float: left;
+	height: auto;
+	width: 307px;
+	border: 1px solid #232323;
+	margin-top:10px;
+	position:relative;
+}
+.productos_in_titu {
+	float: left;
+	height: 29px;
+	width: 625px;
+}
+.productos_in_1 {
+	float: left;
+	height: auto;
+	width: 650px;
+	border-bottom:1px solid #323232;
+	padding-bottom:9px;
+	margin-top:5px;
+}
+.productos_in_1_datos {
+	float: left;
+	height: auto;
+	width: 350px;
+}
+.productos_in_1_icono {
+	float: left;
+	height: 73px;
+	width: 26px;
+}
+.product_in_1_subti_clase {
+	float: left;
+	height: 18px;
+	width: 294px;
+}
+.product_in_serie {
+	float: left;
+	height: 22px;
+	width: 80px;
+}
+.product_in_colores {
+	float: left;
+	height: 20px;
+	width: 150px;
+	padding-top:4px;
+}
+.product_in_color1 {
+	float: left;
+	height: 13px;
+	width: 13px;
+	margin-right:5px;
+}
+.product_in_btndescarga {
+	float: left;
+	height: 17px;
+	width: 243px;
+	padding-top:5px;
+}
+.product_in_1_fotos {
+	float: left;
+	height: auto;
+	width: 270px;
+}
+.product_in_1_foto1 {
+	float: left;
+	height: 89px;
+	width: 130px;
+	padding-bottom:7px;
+	position:relative;
+}
+/*----------MODAL----------*/
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000; cursor:wait;}
+
+/* Container */
+#simplemodal-container { min-height:464px; width:832px; color:#bbb; background-color:#202021; border:1px solid #353536; padding:12px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}
+/*------------------------*/
+.product_detalle_1_tituclase {
+	float: left;
+	height: 48px;
+	width: 633px;
+}
+.product_detalle_1_master {
+	float: left;
+	height: 385px;
+	width: 400px;
+}
+.product_detalle_1_masterimg {
+	float: left;
+	height: 252px;
+	width: 369px;
+	border:1px solid #c6c4c9;
+}
+.product_detalle_1_masterdetalle {
+	float: left;
+	height: 100px;
+	width: 371px;
+	padding-top:8px;
+	text-align:justify;
+}
+.product_detalle_1_caract {
+	float: left;
+	height: 385px;
+	width: 380px;
+}
+.product_detalle_1_caract1 {
+	float: left;
+	height: auto;
+	width: 379px;
+	margin-bottom:8px;
+}
+.product_detalle_1_foto1 {
+	float: left;
+	height: 89px;
+	width: 88px;
+	border: 1px solid #000000;
+	margin-right:5px;
+}
+.product_detalle_1_detalle1 {
+	float: left;
+	/*width: 278px;*/
+	width: 258px;
+	background-color:#0f0f0f;
+	border: 1px solid #000000;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:4px;
+	padding-bottom:4px;
+	min-height:82px;
+}
+.product_detalle_1_det_subti1 {
+	float: left;
+	height: auto;
+        padding-bottom: 3px;
+	width: 258px;
+}
+.product_detalle_1_det_descrip1 {
+	float: left;
+	height: auto;
+	width: 258px;
+	padding-top:3px;
+}
+
+.product_in_color2 {
+    float: left;
+    height: 13px;
+    width: 13px;
+    margin-right:5px;
+}
+.product_in_colortop {
+    float: left;
+    height: 6px;
+    width: 13px;
+}
+.product_in_colorbottom {
+    float: left;
+    height: 7px;
+    width: 13px;
+}
