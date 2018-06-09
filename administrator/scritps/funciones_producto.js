@@ -12,27 +12,23 @@ $(document).ready(function(){
     });
                                                                                 
     $('#btn_acept').click(function(){
-        var master = $('#master');
-        var modelo = $('#modelo');
-        var v_imagen = $('#v_imagen');
-        var imagen = $('#imagen');
-        var descripcion = $('#descripcion');
+        const master = $('#master');
+        const modelo = $('#modelo');
+        const v_imagen = $('#v_imagen');
+        const imagen = $('#imagen');
+        const descripcion = $('#descripcion');
 
-        if(master.val() == 0) {
+        if(master.val() === 0) {
             alert('Debe seleccionar un vehiculo y su clase');
-            return;
         } else {
-            if(jQuery.trim(modelo.val()) == 0) {
+            if($.trim(modelo.val()) === 0) {
                 alert('Debe ingresar un modelo de vehiculo');
-                return;
             } else {
-                if(jQuery.trim(v_imagen.val()) == 0 && jQuery.trim(imagen.val()) == 0) {
+                if($.trim(v_imagen.val()) === 0 && jQuery.trim(imagen.val()) === 0) {
                     alert('Debe seleccionar una imagen');
-                    return;
                 } else {
-                    if(jQuery.trim(descripcion.val()) == 0) {
+                    if($.trim(descripcion.val()) === 0) {
                         alert('Debe ingresar un descripcion del vehiculo');
-                        return;
                     } else {
                         $('#formProducto').submit();
                     }   

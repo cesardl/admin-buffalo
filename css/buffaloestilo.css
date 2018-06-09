@@ -10,52 +10,52 @@ body {
 /*--------textos-----------------*/
 
 .txt_pie_11p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:11px;
 	color:#959595;
 }
 .txt_piecom_10p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:10px;
 	color:#959595;
 }
 .txt_quietitu_20p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:20px;
 	color:#FFFFFF;
 }
 .txt_prodtitu_17p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:17px;
 	color:#FFFFFF;
 }
 .txt_quiesubti_17p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:17px;
 	color:#ff6600;
 }
 .txt_quierojitas_11p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:11px;
 	color:#ff0000;
 }
 .txt_contacsubti_12p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:12px;
 	color:#ff6600;
 }
 .txt_ubicsitio_12p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:12px;
 	color:#FFFFFF;
 }
 .txt_prodtitu_40p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:40px;
 	color:#ff0000;
 }
 .txt_prod_12p {
-	font-family:Arial;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	font-size:12px;
 	color:#959595;
 }
@@ -109,7 +109,7 @@ body {
 /*------------FLOTANTES----------------*/
 #index_cabecera_logo {
 	position: absolute;
-	left:0px;
+	left:0;
 	top:264px;
 	/*width:300px;
 	height:65px;*/
@@ -120,7 +120,7 @@ body {
 #ubicanos_btn_vermapa {
 	position: absolute;
 	left:335px;
-	top:0px;
+	top:0;
 	/*width:300px;
 	height:65px;*/
 	width:67px;
@@ -339,7 +339,7 @@ body {
 	height: auto;
 	width: 395px;
 	border: 1px solid #232323;
-	padding: 4px 0px 4px 6px;
+	padding: 4px 0 4px 6px;
 	margin-left:10px;
 	margin-top:3px;
 	position:relative;

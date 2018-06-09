@@ -42,7 +42,7 @@ if (!isset($_SESSION['user'])) {
                     <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $producto->getId_producto() ?>" />
                     </tr>
                     <tr>
-                        <td class="tdLabel">Tipo vehiculo</td>
+                        <td class="tdLabel"><label for="vehiculo">Tipo veh&iacute;culo</label></td>
                         <td>
                             <select id="vehiculo" name="vehiculo" style="width: 120px;">
                                 <option value="0">[Seleccione]</option>
@@ -80,7 +80,7 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td class="tdLabel">Modelo</td>
+                        <td class="tdLabel"><label for="modelo">Modelo</label></td>
                         <td>
                             <input type="text" id="modelo" name="modelo" 
                                    style="width: 180px;"
@@ -166,14 +166,14 @@ if (!isset($_SESSION['user'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td class="tdLabel">Descripci&oacute;n</td>
+                        <td class="tdLabel"><label for="descripcion">Descripci&oacute;n</label></td>
                         <td>
-                            <textarea id="descripcion" name="descripcion"  style="height: 80px; width: 360px;"><?php echo utf8_encode($producto->getDescripcion()) ?></textarea>
+                            <textarea id="descripcion" name="descripcion"  style="height: 80px; width: 360px;"><?php echo $producto->getDescripcion() ?></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center;">
-                            <input id="btn_acept" type="button" name="name"value="Aceptar" />                        
+                            <input id="btn_acept" type="button" name="name" value="Aceptar" />
                         </td>
                     </tr>
                 </table>            

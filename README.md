@@ -1,3 +1,3 @@
 # Buffalo Web Page
 
-Pagina web y administrador de productos, hecho en PHP
+P&aacute;gina web y administrador de productos hecho en PHP.

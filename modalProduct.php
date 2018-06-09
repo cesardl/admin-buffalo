@@ -36,7 +36,7 @@ function writeModal($dev_modal, $id_producto) {
 
         <!-- preload the images -->
         <div style='display:none'>
-            <img src='img/basic/x.png' alt='' />
+            <img src='images/x.png' alt='x' />
         </div> </div>";
 }
 

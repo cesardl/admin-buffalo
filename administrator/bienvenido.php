@@ -105,7 +105,7 @@ if ($band == 1) {
                                 <?php
                                 echo "<td>{$master->getClase()}</td>";
                                 echo "<td>{$productos[$i]->getModelo()}</td>";
-                                echo '<td class="tdDescripcion">' . utf8_encode($productos[$i]->getDescripcion()) . '</td>';
+                                echo '<td class="tdDescripcion">' . $productos[$i]->getDescripcion() . '</td>';
                                 echo "<td class='tdAccion'><a href='formProducto.php?accion=E&id_producto={$productos[$i]->getId_producto()}&id_master={$master->getId_master()}&mod_prod={$productos[$i]->getModelo()}'>Editar</a></td>";
                                 echo "<td class='tdAccion'><a href='formDetalles.php?id_producto={$productos[$i]->getId_producto()}&mod_prod={$productos[$i]->getModelo()}'>Detalles</a></td>";
                                 echo "<td class='tdAccion'><a href='formColores.php?id_producto={$productos[$i]->getId_producto()}&mod_prod={$productos[$i]->getModelo()}'>Colores</a></td>";

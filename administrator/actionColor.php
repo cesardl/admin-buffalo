@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
-        <title>Operacion realizada</title>
+        <title>Operaci&oacute;n realizada</title>
     </head>
     <body>
         <?php

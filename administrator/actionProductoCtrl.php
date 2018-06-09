@@ -13,8 +13,8 @@ $messages = array('No es un archivo valido',
 
 $title = $_POST['title'];
 $id_producto = $_POST['id_producto'];
-$modelo = cleanString($_POST['modelo']);
-$descripcion = cleanString($_POST['descripcion']);
+$modelo = trim($_POST['modelo']);
+$descripcion = trim($_POST['descripcion']);
 $foto_detalle = $_POST['v_imagen'];
 $foto_zoom1 = $_POST['v_zoom1'];
 $foto_zoom2 = $_POST['v_zoom2'];
@@ -59,10 +59,9 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
-        <title>Operacion realizada</title>
+        <title>Operaci&oacute;n realizada</title>
     </head>
     <body>
-        <?php include 'menu.html' ?>
         <h3><?php echo $title ?></h3>
         <?php
         if ($tamano_archivo != 0) {
@@ -106,7 +105,7 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
             $producto = new Producto();
             $producto->setId_producto($id_producto);
             $producto->setModelo($modelo);
-            $producto->setDescripcion(utf8_decode($descripcion));
+            $producto->setDescripcion($descripcion);
             $producto->setFoto_principal($foto_detalle);
             $producto->setFoto_zoom_1($foto_zoom1);
             $producto->setFoto_zoom_2($foto_zoom2);
@@ -182,9 +181,5 @@ function uploadPDF($tipo_archivo, $tamano_archivo, $nombre_archivo, $pdf_temp) {
             }
         }
     }
-}
-
-function cleanString($cadena) {
-    return (trim($cadena));
 }
 ?>

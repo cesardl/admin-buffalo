@@ -24,12 +24,12 @@
                     $bl->deleteDetalleProducto($id_detalle_producto);
                 }
             } else {
-                $descripcion = cleanString($_POST["descripcion$i"]);
+                $descripcion = trim($_POST["descripcion$i"]);
                 if (strlen($descripcion) != 0) {
                     $detalleProducto = new DetalleProducto();
-                    $detalleProducto->setId_detalle_producto(cleanString($id_detalle_producto));
-                    $detalleProducto->setTitulo(strtoupper(cleanString($_POST["titulo$i"])));
-                    $detalleProducto->setDescripcion(utf8_decode($descripcion));
+                    $detalleProducto->setId_detalle_producto(trim($id_detalle_producto));
+                    $detalleProducto->setTitulo(strtoupper(trim($_POST["titulo$i"])));
+                    $detalleProducto->setDescripcion($descripcion);
 
                     $foto_detalle = $_POST["v_imagen$i"];
                     $nombre_archivo = $_FILES["imagen$i"]['name'];
@@ -84,10 +84,6 @@ function uploadPhoto($tipo_archivo, $tamano_archivo, $nombre_archivo, $imagen_te
             }
         }
     }
-}
-
-function cleanString($cadena) {
-    return (trim($cadena));
 }
 ?>
 

@@ -43,15 +43,15 @@ if (!isset($_SESSION['user'])) {
                                 <input type="hidden" name="id_det_prod<?php echo $i ?>" value="<?php echo $detalleProducto->getId_detalle_producto() ?>" />
                                 <table>
                                     <tr>
-                                        <td class="tdLabel">Titulo</td>
+                                        <td class="tdLabel"><label for="titulo<?php echo $i ?>">T&iacute;tulo</label></td>
                                         <td><input type="text" id="titulo<?php echo $i ?>" name="titulo<?php echo $i ?>" 
                                                    style="width: 330px;"
                                                    value="<?php echo $detalleProducto->getTitulo() ?>" /></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdLabel">Descripci&oacute;n</td>
+                                        <td class="tdLabel"><label for="descripcion<?php echo $i ?>">Descripci&oacute;n</label></td>
                                         <td><textarea id="descripcion<?php echo $i ?>" name="descripcion<?php echo $i ?>" 
-                                                      style="height: 80px; width: 330px;"><?php echo utf8_encode($detalleProducto->getDescripcion()) ?></textarea>
+                                                      style="height: 80px; width: 330px;"><?php echo $detalleProducto->getDescripcion() ?></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['user'])) {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="tdLabel">Eliminar</td>
+                                        <td class="tdLabel"><label for="delete<?php echo $i ?>">Eliminar</label></td>
                                         <td><input type="checkbox" id="delete<?php echo $i ?>" name="delete<?php echo $i ?>[]" /></td>
                                     </tr>
                                 </table>
