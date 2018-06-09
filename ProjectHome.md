@@ -1,1 +1,0 @@
-Pagina web y administrador de productos, hecho en PHP
