@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : style
     Created on : 20/10/2011, 01:27:57 AM
     Author     : Cesardl
@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
+root {
     display: block;
 }
 
@@ -14,15 +14,6 @@ body {
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
     font-size: 12px;
     padding: 10px;
-}
-
-.tdDescripcion {
-    padding: 8px;
-}
-
-.tdAccion {
-    text-align: center;
-    width: 6%;
 }
 
 .tdLabel {
