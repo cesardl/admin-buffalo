@@ -6,16 +6,6 @@
         Purpose of the stylesheet follows.
 */
 
-root {
-    display: block;
-}
-
-body {
-    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-    font-size: 12px;
-    padding: 10px;
-}
-
 .tdLabel {
     padding-right: 10px;
     text-align: right;

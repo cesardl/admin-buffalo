@@ -11,26 +11,29 @@ include_once 'dao/VehiculoDAO.php';
  *
  * @author Cesardl
  */
-class VehiculoBL {
+class VehiculoBL
+{
 
     private $vDao;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->vDao = new VehiculoDAO;
     }
 
-    public function getVehiculos() {
+    public function getVehiculos()
+    {
         return $this->vDao->getVehiculos();
     }
 
-    public function getMasterById($id_master) {
+    public function getMasterById($id_master)
+    {
         return $this->vDao->getMasterById($id_master);
     }
 
-    public function getMastersByVehiculo($id_vehiculo) {
+    public function getMastersByVehiculo($id_vehiculo)
+    {
         return $this->vDao->getMastersByVehiculo($id_vehiculo);
     }
 
 }
-
-?>

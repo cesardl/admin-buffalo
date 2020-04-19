@@ -132,5 +132,4 @@ if ($band == 1) {
     </script>
     </body>
     </html>
-<?php }
-?>
+<?php } ?>
