@@ -33,7 +33,9 @@ if (!isset($_SESSION['user'])) {
     <div class="container pt-4">
         <div class="row">
             <div class="col"><h3>Seleccione las combinaciones de colores del <?php echo $_GET['mod_prod'] ?></h3></div>
-            <div class="col-2"><a href="bienvenido.php">&lt;&lt; Volver</a></div>
+            <div class="col-2 tdLabel">
+                <a href="bienvenido.php">&lt;&lt; Volver</a>
+            </div>
         </div>
         <form id="formColores" method="POST" action="actionColor.php" enctype="multipart/form-data">
             <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $id_producto ?>"/>

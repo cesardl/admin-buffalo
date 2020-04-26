@@ -39,7 +39,7 @@ if (!isset($_SESSION['user'])) {
     <div class="container pt-4">
         <div class="row">
             <div class="col"><h3><?php echo $title ?></h3></div>
-            <div class="col-2">
+            <div class="col-2 tdLabel">
                 <a href="bienvenido.php">&lt;&lt; Volver</a>
             </div>
         </div>
@@ -198,7 +198,7 @@ if (!isset($_SESSION['user'])) {
                               class="form-control"><?php echo $producto->getDescripcion() ?></textarea>
                 </div>
             </div>
-            <div class="form-row my-2">
+            <div class="row my-4">
                 <div class="col">
                     <input id="btn_acept" type="button" name="name" value="Aceptar" class="btn btn-primary"/>
                 </div>

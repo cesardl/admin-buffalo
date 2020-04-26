@@ -50,7 +50,10 @@ if ($band == 1) {
     <div class="container pt-4">
         <table style="text-align: right; width: 100%;">
             <tr>
-                <td colspan="2" style="font-weight: bold;">
+                <td style="text-align: left">
+                    <h3>Mantenimiento de veh&iacute;culos</h3>
+                </td>
+                <td style="font-weight: bold;">
                     <a href="index.php?param=1">Cerrar sesi&oacute;n</a>
                 </td>
             </tr>
@@ -60,14 +63,11 @@ if ($band == 1) {
                 </td>
             </tr>
             <tr>
-                <td style="font-weight: bold; font-size: 14px; text-align: left;">
-                    <h3>Mantenimiento de veh&iacute;culos</h3>
-                </td>
-                <td><a href="formProducto.php?action=N">Nuevo producto</a></td>
+                <td colspan="2"><a href="formProducto.php?action=N">Nuevo producto</a></td>
             </tr>
         </table>
         <div id="result"></div>
-        <table class="table table-striped">
+        <table class="table table-striped mt-3">
             <thead class="thead-dark">
             <tr>
                 <th>Clase</th>
