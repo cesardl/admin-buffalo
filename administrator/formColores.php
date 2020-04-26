@@ -39,37 +39,35 @@ if (!isset($_SESSION['user'])) {
         </div>
         <form id="formColores" method="POST" action="actionColor.php" enctype="multipart/form-data">
             <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $id_producto ?>"/>
-            <table>
-                <?php for ($i = 0; $i < count($coloresProducto); $i++) {
-                    $cp_colorProducto = $coloresProducto[$i]; ?>
-                    <tr>
-                        <td class="tdLabel">
-                            Color <?php echo $i + 1 ?>
-                            <input type="hidden" name="id<?php echo $i ?>"
-                                   value="<?php echo $cp_colorProducto->getId() ?>"/>
-                        </td>
-                        <td>
-                            <select name="color_1_<?php echo $i ?>">
-                                <option value="0">[Seleccione]</option>
-                                <?php echo $bl->getColores($cp_colorProducto->getColor_1()->getId_color()) ?>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="color_2_<?php echo $i ?>">
-                                <option value="0">[Seleccione si es necesario]</option>
-                                <?php echo $bl->getColores($cp_colorProducto->getColor_2()->getId_color()) ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <?php
-                }
-                ?>
-                <tr>
-                    <td colspan="3" style="text-align: center;">
-                        <input id="btn_acept" type="submit" name="name" value="Aceptar" class="btn btn-primary"/>
-                    </td>
-                </tr>
-            </table>
+            <?php for ($i = 0; $i < count($coloresProducto); $i++) {
+                $cp_colorProducto = $coloresProducto[$i]; ?>
+                <div class="row my-2">
+                    <div class="col-2 tdLabel">
+                        Color <?php echo $i + 1 ?>
+                        <input type="hidden" name="id<?php echo $i ?>"
+                               value="<?php echo $cp_colorProducto->getId() ?>"/>
+                    </div>
+                    <div class="col">
+                        <select name="color_1_<?php echo $i ?>" class="custom-select">
+                            <option value="0">[Seleccione]</option>
+                            <?php echo $bl->getColores($cp_colorProducto->getColor_1()->getId_color()) ?>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select name="color_2_<?php echo $i ?>" class="custom-select">
+                            <option value="0">[Seleccione si es necesario]</option>
+                            <?php echo $bl->getColores($cp_colorProducto->getColor_2()->getId_color()) ?>
+                        </select>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+            <div class="row my-2">
+                <div class="col" style="text-align: center;">
+                    <input id="btn_acept" type="submit" name="name" value="Aceptar" class="btn btn-primary"/>
+                </div>
+            </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

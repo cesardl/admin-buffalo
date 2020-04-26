@@ -1,8 +1,5 @@
 <?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 include_once 'domain/Master.php';
 include_once 'domain/Producto.php';
 include_once 'bussinessLogic/ProductoBL.php';
@@ -59,7 +56,6 @@ $pdf_temp_ficha = $_FILES['fichtec']['tmp_name'];
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
-    <link type="text/css" href="style/style.css" rel="stylesheet" media="screen"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">

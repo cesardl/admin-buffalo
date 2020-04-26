@@ -90,7 +90,7 @@ if (!isset($_SESSION['user'])) {
             }
             ?>
             <div class="row my-2">
-                <div class="col">
+                <div class="col" style="text-align: center;">
                     <input type="submit" value="Aceptar" name="aceptar" class="btn btn-primary"/>
                 </div>
             </div>

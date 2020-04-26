@@ -199,7 +199,7 @@ if (!isset($_SESSION['user'])) {
                 </div>
             </div>
             <div class="row my-4">
-                <div class="col">
+                <div class="col" style="text-align: center;">
                     <input id="btn_acept" type="button" name="name" value="Aceptar" class="btn btn-primary"/>
                 </div>
             </div>

@@ -1,9 +1,5 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 include_once 'bussinessLogic/VehiculoBL.php';
 
 $id_producto = $_POST['veh_id'];
